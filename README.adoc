@@ -4,6 +4,14 @@
 :sectnums: |,all|
 toc::[]
 
+* [ ] Listener in different port to Reply specific HTTP status codes
+* [ ] Scopes
+** [ ] Try Scope
+** [ ] Until Successful
+** [ ] On Error Propagate
+*** [ ] On Error Continue inside On Error Propagate, validate what happens with the first error after an error ocurrer inside the On Error Propagate
+** [ ] On Error Continue
+
 == Summary
 
 This application demonstrates how to use the MuleSoft 4 error handling in different scenarios with different types of errors.
@@ -16,38 +24,42 @@ MuleSoft 4 provides a robust error handling framework to manage and respond to e
 
 The error handling mechanism is based on the following key components:
 
- 1. Try Scope:
-    - Encapsulates a block of code where errors might occur.
-    - Allows you to handle errors locally within the scope.
+. Error Types:
+** MuleSoft categorizes errors into different types (e.g., `CONNECTIVITY`, `VALIDATION`, `TRANSFORMATION`).
+** Each error type has a namespace and a specific error code.
 
- 2. Error Types:
-    - MuleSoft categorizes errors into different types (e.g., `CONNECTIVITY`, `VALIDATION`, `TRANSFORMATION`).
-    - Each error type has a namespace and a specific error code.
+. Error Handlers:
+** `On Error Continue`: Allows the flow to continue execution after handling the error.
+** `On Error Propagate`: Propagates the error to the parent flow or caller after handling it.
 
- 3. Error Handlers:
-    - `On Error Continue`: Allows the flow to continue execution after handling the error.
-    - `On Error Propagate`: Propagates the error to the parent flow or caller after handling it.
+. Scopes:
+** Try Scope:
+*** Encapsulates a block of code that may throw an error.
+*** Allows you to define specific error handling logic for that block.
+** Until Successful Scope:
+*** Repeats a block of code until it succeeds or reaches a maximum
+   
 
- 4. Error Propagation:
-    - Errors can be propagated to higher levels in the flow hierarchy.
-    - Use `raise-error` to explicitly raise custom errors.
+. Error Propagation:
+** Errors can be propagated to higher levels in the flow hierarchy.
+** Use `raise-error` to explicitly raise custom errors.
 
- 5. Logging and Debugging:
-    - Use the `Logger` component to log error details for debugging purposes.
-    - Access error attributes such as `error.description`, `error.errorType.namespace`, `error.errorType.identifier`, and `error.detailedDescription`.
+. Logging and Debugging:
+** Use the `Logger` component to log error details for debugging purposes.
+** Access error attributes such as `error.description`, `error.errorType.namespace`, `error.errorType.identifier`, and `error.detailedDescription`.
 
- 6. Global Error Handling:
-    - Define global error handlers to manage errors across multiple flows.
-    - Use the `Error Handler` component at the application level.
+. Global Error Handling:
+** Define global error handlers to manage errors across multiple flows.
+** Use the `Error Handler` component at the application level.
 
 Example Use Case:
- - A flow that connects to an external API might use a `Try` scope to handle connectivity errors.
- - If an error occurs, an `On Error Continue` block can log the error and provide a fallback response.
+** A flow that connects to an external API might use a `Try` scope to handle connectivity errors.
+** If an error occurs, an `On Error Continue` block can log the error and provide a fallback response.
 
 Best Practices:
- - Always handle errors explicitly to avoid unexpected application behavior.
- - Use meaningful error messages and codes for better debugging and maintenance.
- - Test error scenarios thoroughly to ensure the application behaves as expected.
+** Always handle errors explicitly to avoid unexpected application behavior.
+** Use meaningful error messages and codes for better debugging and maintenance.
+** Test error scenarios thoroughly to ensure the application behaves as expected.
 
 == HTTP Status
 
