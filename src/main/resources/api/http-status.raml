@@ -1,0 +1,403 @@
+#%RAML 1.0
+title: HTTP Status Mock API
+version: v1
+baseUri: /v1/http-status
+description: |
+  API to mock responses for various HTTP status codes. Supports GET, POST, PUT, DELETE on /{httpStatus}.
+mediaType: application/json
+
+types:
+  HttpStatusResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        description: HTTP status code
+        example: 404
+      message:
+        type: string
+        description: Human-readable status message
+        example: Not Found
+    example:
+      code: 404
+      message: Not Found
+
+/{httpStatus}:
+  uriParameters:
+    httpStatus:
+      type: integer
+      description: HTTP status code to mock
+      example: 404
+  get:
+    description: Mock GET response for the given HTTP status code
+    responses:
+      200:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 200, message: OK }
+      201:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 201, message: Created }
+      204:
+        description: No Content
+      209:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 209, message: Already Reported }
+      400:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 400, message: Bad Request }
+      401:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 401, message: Unauthorized }
+      403:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 403, message: Forbidden }
+      404:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 404, message: Not Found }
+      405:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 405, message: Method Not Allowed }
+      409:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 409, message: Conflict }
+      410:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 410, message: Gone }
+      415:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 415, message: Unsupported Media Type }
+      422:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 422, message: Unprocessable Entity }
+      429:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 429, message: Too Many Requests }
+      500:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 500, message: Internal Server Error }
+      502:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 502, message: Bad Gateway }
+      503:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 503, message: Service Unavailable }
+      504:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 504, message: Gateway Timeout }
+      511:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 511, message: Network Authentication Required }
+  post:
+    description: Mock POST response for the given HTTP status code
+    body:
+      application/json:
+        type: HttpStatusResponse
+        example: { code: 201, message: Created }
+    responses:
+      201:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 201, message: Created }
+      204:
+        description: No Content
+      209:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 209, message: Already Reported }
+      400:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 400, message: Bad Request }
+      401:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 401, message: Unauthorized }
+      403:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 403, message: Forbidden }
+      404:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 404, message: Not Found }
+      405:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 405, message: Method Not Allowed }
+      409:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 409, message: Conflict }
+      410:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 410, message: Gone }
+      415:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 415, message: Unsupported Media Type }
+      422:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 422, message: Unprocessable Entity }
+      429:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 429, message: Too Many Requests }
+      500:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 500, message: Internal Server Error }
+      502:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 502, message: Bad Gateway }
+      503:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 503, message: Service Unavailable }
+      504:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 504, message: Gateway Timeout }
+      511:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 511, message: Network Authentication Required }
+  put:
+    description: Mock PUT response for the given HTTP status code
+    body:
+      application/json:
+        type: HttpStatusResponse
+        example: { code: 200, message: OK }
+    responses:
+      200:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 200, message: OK }
+      204:
+        description: No Content
+      209:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 209, message: Already Reported }
+      400:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 400, message: Bad Request }
+      401:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 401, message: Unauthorized }
+      403:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 403, message: Forbidden }
+      404:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 404, message: Not Found }
+      405:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 405, message: Method Not Allowed }
+      409:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 409, message: Conflict }
+      410:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 410, message: Gone }
+      415:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 415, message: Unsupported Media Type }
+      422:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 422, message: Unprocessable Entity }
+      429:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 429, message: Too Many Requests }
+      500:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 500, message: Internal Server Error }
+      502:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 502, message: Bad Gateway }
+      503:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 503, message: Service Unavailable }
+      504:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 504, message: Gateway Timeout }
+      511:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 511, message: Network Authentication Required }
+  delete:
+    description: Mock DELETE response for the given HTTP status code
+    responses:
+      200:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 200, message: OK }
+      204:
+        description: No Content
+      209:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 209, message: Already Reported }
+      400:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 400, message: Bad Request }
+      401:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 401, message: Unauthorized }
+      403:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 403, message: Forbidden }
+      404:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 404, message: Not Found }
+      405:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 405, message: Method Not Allowed }
+      409:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 409, message: Conflict }
+      410:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 410, message: Gone }
+      415:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 415, message: Unsupported Media Type }
+      422:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 422, message: Unprocessable Entity }
+      429:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 429, message: Too Many Requests }
+      500:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 500, message: Internal Server Error }
+      502:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 502, message: Bad Gateway }
+      503:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 503, message: Service Unavailable }
+      504:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 504, message: Gateway Timeout }
+      511:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 511, message: Network Authentication Required }
