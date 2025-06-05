@@ -18,6 +18,12 @@ This application demonstrates how to use the MuleSoft 4 error handling in differ
 
 It includes examples of how to handle errors in a MuleSoft application, including connectivity errors, validation errors, and transformation errors.
 
+== Links
+
+* [Mule Errors | MuleSoft Documentation](https://docs.mulesoft.com/mule-runtime/latest/mule-error-concept)
+* [Predefined Variables | MuleSoft Documentation](https://docs.mulesoft.com/dataweave/latest/dataweave-variables-context)
+* [Introduction to Mule 4: Error Handlers | MuleSoft Documentation](https://docs.mulesoft.com/mule-runtime/latest/intro-error-handlers)
+
 == Error Handling in MuleSoft 4:
 
 MuleSoft 4 provides a robust error handling framework to manage and respond to errors effectively.
