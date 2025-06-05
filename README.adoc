@@ -9,7 +9,7 @@ toc::[]
 ** [ ] Try Scope
 ** [ ] Until Successful
 ** [ ] On Error Propagate
-*** [ ] On Error Continue inside On Error Propagate, validate what happens with the first error after an error ocurrer inside the On Error Propagate
+*** [ ] On Error Continue inside On Error Propagate, validate what happens with the first error after an error occurs inside the On Error Propagate
 ** [ ] On Error Continue
 
 == Summary
@@ -20,9 +20,9 @@ It includes examples of how to handle errors in a MuleSoft application, includin
 
 == Links
 
-* [Mule Errors | MuleSoft Documentation](https://docs.mulesoft.com/mule-runtime/latest/mule-error-concept)
-* [Predefined Variables | MuleSoft Documentation](https://docs.mulesoft.com/dataweave/latest/dataweave-variables-context)
-* [Introduction to Mule 4: Error Handlers | MuleSoft Documentation](https://docs.mulesoft.com/mule-runtime/latest/intro-error-handlers)
+* https://docs.mulesoft.com/mule-runtime/latest/mule-error-concept[Mule Errors | MuleSoft Documentation]
+* https://docs.mulesoft.com/dataweave/latest/dataweave-variables-context[Predefined Variables | MuleSoft Documentation]
+* https://docs.mulesoft.com/mule-runtime/latest/intro-error-handlers[Introduction to Mule 4: Error Handlers | MuleSoft Documentation]
 
 == Error Handling in MuleSoft 4:
 
@@ -71,22 +71,49 @@ Best Practices:
 
 The application tries to mock a variety of HTTP status codes, including:
 
+Reference: 
+
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status[HTTP response status codes - HTTP | MDN]
+- https://http.dev/[HyperText Transfer Protocol (HTTP) explained]
+
+
+=== HTTP Status Codes
 - 200 OK
 - 201 Created
+- 202 Accepted
 - 204 No Content
-- 209 Already Reported / Conflict
+- 205 Reset Content
+- 206 Partial Content
+- 208 Already Reported / Conflict
+
 - 400 Bad Request
 - 401 Unauthorized
+- 402 Payment Required
 - 403 Forbidden
 - 404 Not Found
 - 405 Method Not Allowed
+- 406 Not Acceptable
+- 408 Request Timeout
 - 409 Conflict
 - 410 Gone
+- 411 Length Required
+- 412 Precondition Failed
+- 413 Content Too Large
+- 414 URI Too Long
 - 415 Unsupported Media Type
 - 422 Unprocessable Entity
+- 426 Upgrade Required
+- 428 Precondition Required
 - 429 Too Many Requests
+- 431 Request Header Fields Too Large
+- 451 Unavailable For Legal Reasons
+
 - 500 Internal Server Error
+- 501 Not Implemented
 - 502 Bad Gateway
 - 503 Service Unavailable
 - 504 Gateway Timeout
+- 507 Insufficient Storage
+- 508 Loop Detected
 - 511 Network Authentication Required
+
