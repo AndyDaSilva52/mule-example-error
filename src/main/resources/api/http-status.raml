@@ -31,6 +31,28 @@ types:
   get:
     description: Mock GET response for the given HTTP status code
     responses:
+      # 1xx - Informational
+      100:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 100, message: Continue }
+      101:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 101, message: Switching Protocols }
+      102:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 102, message: Processing }
+      103:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 103, message: Early Hints }
+      # 2xx - Success
       200:
         body:
           application/json:
@@ -41,13 +63,85 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 201, message: Created }
-      204:
-        description: No Content
-      209:
+      202:
         body:
           application/json:
             type: HttpStatusResponse
-            example: { code: 209, message: Already Reported }
+            example: { code: 202, message: Accepted }
+      203:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 203, message: Non-Authoritative Information }
+      204:
+        description: No Content
+      205:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 205, message: Reset Content }
+      206:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 206, message: Partial Content }
+      207:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 207, message: Multi-Status }
+      208:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 208, message: Already Reported }
+      226:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 226, message: IM Used }
+      # 3xx - Redirection
+      300:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 300, message: Multiple Choices }
+      301:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 301, message: Moved Permanently }
+      302:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 302, message: Found }
+      303:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 303, message: See Other }
+      304:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 304, message: Not Modified }
+      305:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 305, message: Use Proxy }
+      307:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 307, message: Temporary Redirect }
+      308:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 308, message: Permanent Redirect }
+      # 4xx - Client Error
       400:
         body:
           application/json:
@@ -58,6 +152,11 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 401, message: Unauthorized }
+      402:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 402, message: Payment Required }
       403:
         body:
           application/json:
@@ -73,6 +172,21 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 405, message: Method Not Allowed }
+      406:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 406, message: Not Acceptable }
+      407:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 407, message: Proxy Authentication Required }
+      408:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 408, message: Request Timeout }
       409:
         body:
           application/json:
@@ -83,26 +197,107 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 410, message: Gone }
+      411:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 411, message: Length Required }
+      412:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 412, message: Precondition Failed }
+      413:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 413, message: Payload Too Large }
+      414:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 414, message: URI Too Long }
       415:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 415, message: Unsupported Media Type }
+      416:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 416, message: Range Not Satisfiable }
+      417:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 417, message: Expectation Failed }
+      418:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 418, message: I'm a teapot }
+      421:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 421, message: Misdirected Request }
       422:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 422, message: Unprocessable Entity }
+      423:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 423, message: Locked }
+      424:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 424, message: Failed Dependency }
+      425:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 425, message: Too Early }
+      426:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 426, message: Upgrade Required }
+      428:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 428, message: Precondition Required }
       429:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 429, message: Too Many Requests }
+      431:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 431, message: Request Header Fields Too Large }
+      451:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 451, message: Unavailable For Legal Reasons }
+      # 5xx - Server Error
       500:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 500, message: Internal Server Error }
+      501:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 501, message: Not Implemented }
       502:
         body:
           application/json:
@@ -118,6 +313,31 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 504, message: Gateway Timeout }
+      505:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 505, message: HTTP Version Not Supported }
+      506:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 506, message: Variant Also Negotiates }
+      507:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 507, message: Insufficient Storage }
+      508:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 508, message: Loop Detected }
+      510:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 510, message: Not Extended }
       511:
         body:
           application/json:
@@ -130,18 +350,117 @@ types:
         type: HttpStatusResponse
         example: { code: 201, message: Created }
     responses:
+      # 1xx - Informational
+      100:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 100, message: Continue }
+      101:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 101, message: Switching Protocols }
+      102:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 102, message: Processing }
+      103:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 103, message: Early Hints }
+      # 2xx - Success
+      200:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 200, message: OK }
       201:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 201, message: Created }
-      204:
-        description: No Content
-      209:
+      202:
         body:
           application/json:
             type: HttpStatusResponse
-            example: { code: 209, message: Already Reported }
+            example: { code: 202, message: Accepted }
+      203:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 203, message: Non-Authoritative Information }
+      204:
+        description: No Content
+      205:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 205, message: Reset Content }
+      206:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 206, message: Partial Content }
+      207:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 207, message: Multi-Status }
+      208:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 208, message: Already Reported }
+      226:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 226, message: IM Used }
+      # 3xx - Redirection
+      300:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 300, message: Multiple Choices }
+      301:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 301, message: Moved Permanently }
+      302:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 302, message: Found }
+      303:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 303, message: See Other }
+      304:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 304, message: Not Modified }
+      305:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 305, message: Use Proxy }
+      307:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 307, message: Temporary Redirect }
+      308:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 308, message: Permanent Redirect }
+      # 4xx - Client Error
       400:
         body:
           application/json:
@@ -152,6 +471,11 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 401, message: Unauthorized }
+      402:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 402, message: Payment Required }
       403:
         body:
           application/json:
@@ -167,6 +491,21 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 405, message: Method Not Allowed }
+      406:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 406, message: Not Acceptable }
+      407:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 407, message: Proxy Authentication Required }
+      408:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 408, message: Request Timeout }
       409:
         body:
           application/json:
@@ -177,26 +516,107 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 410, message: Gone }
+      411:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 411, message: Length Required }
+      412:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 412, message: Precondition Failed }
+      413:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 413, message: Payload Too Large }
+      414:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 414, message: URI Too Long }
       415:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 415, message: Unsupported Media Type }
+      416:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 416, message: Range Not Satisfiable }
+      417:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 417, message: Expectation Failed }
+      418:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 418, message: I'm a teapot }
+      421:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 421, message: Misdirected Request }
       422:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 422, message: Unprocessable Entity }
+      423:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 423, message: Locked }
+      424:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 424, message: Failed Dependency }
+      425:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 425, message: Too Early }
+      426:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 426, message: Upgrade Required }
+      428:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 428, message: Precondition Required }
       429:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 429, message: Too Many Requests }
+      431:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 431, message: Request Header Fields Too Large }
+      451:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 451, message: Unavailable For Legal Reasons }
+      # 5xx - Server Error
       500:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 500, message: Internal Server Error }
+      501:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 501, message: Not Implemented }
       502:
         body:
           application/json:
@@ -212,6 +632,31 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 504, message: Gateway Timeout }
+      505:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 505, message: HTTP Version Not Supported }
+      506:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 506, message: Variant Also Negotiates }
+      507:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 507, message: Insufficient Storage }
+      508:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 508, message: Loop Detected }
+      510:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 510, message: Not Extended }
       511:
         body:
           application/json:
@@ -224,18 +669,117 @@ types:
         type: HttpStatusResponse
         example: { code: 200, message: OK }
     responses:
+      # 1xx - Informational
+      100:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 100, message: Continue }
+      101:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 101, message: Switching Protocols }
+      102:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 102, message: Processing }
+      103:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 103, message: Early Hints }
+      # 2xx - Success
       200:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 200, message: OK }
-      204:
-        description: No Content
-      209:
+      201:
         body:
           application/json:
             type: HttpStatusResponse
-            example: { code: 209, message: Already Reported }
+            example: { code: 201, message: Created }
+      202:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 202, message: Accepted }
+      203:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 203, message: Non-Authoritative Information }
+      204:
+        description: No Content
+      205:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 205, message: Reset Content }
+      206:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 206, message: Partial Content }
+      207:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 207, message: Multi-Status }
+      208:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 208, message: Already Reported }
+      226:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 226, message: IM Used }
+      # 3xx - Redirection
+      300:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 300, message: Multiple Choices }
+      301:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 301, message: Moved Permanently }
+      302:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 302, message: Found }
+      303:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 303, message: See Other }
+      304:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 304, message: Not Modified }
+      305:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 305, message: Use Proxy }
+      307:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 307, message: Temporary Redirect }
+      308:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 308, message: Permanent Redirect }
+      # 4xx - Client Error
       400:
         body:
           application/json:
@@ -246,6 +790,11 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 401, message: Unauthorized }
+      402:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 402, message: Payment Required }
       403:
         body:
           application/json:
@@ -261,6 +810,21 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 405, message: Method Not Allowed }
+      406:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 406, message: Not Acceptable }
+      407:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 407, message: Proxy Authentication Required }
+      408:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 408, message: Request Timeout }
       409:
         body:
           application/json:
@@ -271,26 +835,107 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 410, message: Gone }
+      411:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 411, message: Length Required }
+      412:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 412, message: Precondition Failed }
+      413:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 413, message: Payload Too Large }
+      414:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 414, message: URI Too Long }
       415:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 415, message: Unsupported Media Type }
+      416:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 416, message: Range Not Satisfiable }
+      417:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 417, message: Expectation Failed }
+      418:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 418, message: I'm a teapot }
+      421:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 421, message: Misdirected Request }
       422:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 422, message: Unprocessable Entity }
+      423:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 423, message: Locked }
+      424:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 424, message: Failed Dependency }
+      425:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 425, message: Too Early }
+      426:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 426, message: Upgrade Required }
+      428:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 428, message: Precondition Required }
       429:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 429, message: Too Many Requests }
+      431:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 431, message: Request Header Fields Too Large }
+      451:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 451, message: Unavailable For Legal Reasons }
+      # 5xx - Server Error
       500:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 500, message: Internal Server Error }
+      501:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 501, message: Not Implemented }
       502:
         body:
           application/json:
@@ -306,6 +951,31 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 504, message: Gateway Timeout }
+      505:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 505, message: HTTP Version Not Supported }
+      506:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 506, message: Variant Also Negotiates }
+      507:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 507, message: Insufficient Storage }
+      508:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 508, message: Loop Detected }
+      510:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 510, message: Not Extended }
       511:
         body:
           application/json:
@@ -314,18 +984,117 @@ types:
   delete:
     description: Mock DELETE response for the given HTTP status code
     responses:
+      # 1xx - Informational
+      100:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 100, message: Continue }
+      101:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 101, message: Switching Protocols }
+      102:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 102, message: Processing }
+      103:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 103, message: Early Hints }
+      # 2xx - Success
       200:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 200, message: OK }
-      204:
-        description: No Content
-      209:
+      201:
         body:
           application/json:
             type: HttpStatusResponse
-            example: { code: 209, message: Already Reported }
+            example: { code: 201, message: Created }
+      202:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 202, message: Accepted }
+      203:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 203, message: Non-Authoritative Information }
+      204:
+        description: No Content
+      205:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 205, message: Reset Content }
+      206:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 206, message: Partial Content }
+      207:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 207, message: Multi-Status }
+      208:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 208, message: Already Reported }
+      226:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 226, message: IM Used }
+      # 3xx - Redirection
+      300:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 300, message: Multiple Choices }
+      301:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 301, message: Moved Permanently }
+      302:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 302, message: Found }
+      303:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 303, message: See Other }
+      304:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 304, message: Not Modified }
+      305:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 305, message: Use Proxy }
+      307:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 307, message: Temporary Redirect }
+      308:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 308, message: Permanent Redirect }
+      # 4xx - Client Error
       400:
         body:
           application/json:
@@ -336,6 +1105,11 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 401, message: Unauthorized }
+      402:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 402, message: Payment Required }
       403:
         body:
           application/json:
@@ -351,6 +1125,21 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 405, message: Method Not Allowed }
+      406:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 406, message: Not Acceptable }
+      407:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 407, message: Proxy Authentication Required }
+      408:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 408, message: Request Timeout }
       409:
         body:
           application/json:
@@ -361,26 +1150,107 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 410, message: Gone }
+      411:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 411, message: Length Required }
+      412:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 412, message: Precondition Failed }
+      413:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 413, message: Payload Too Large }
+      414:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 414, message: URI Too Long }
       415:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 415, message: Unsupported Media Type }
+      416:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 416, message: Range Not Satisfiable }
+      417:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 417, message: Expectation Failed }
+      418:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 418, message: I'm a teapot }
+      421:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 421, message: Misdirected Request }
       422:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 422, message: Unprocessable Entity }
+      423:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 423, message: Locked }
+      424:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 424, message: Failed Dependency }
+      425:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 425, message: Too Early }
+      426:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 426, message: Upgrade Required }
+      428:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 428, message: Precondition Required }
       429:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 429, message: Too Many Requests }
+      431:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 431, message: Request Header Fields Too Large }
+      451:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 451, message: Unavailable For Legal Reasons }
+      # 5xx - Server Error
       500:
         body:
           application/json:
             type: HttpStatusResponse
             example: { code: 500, message: Internal Server Error }
+      501:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 501, message: Not Implemented }
       502:
         body:
           application/json:
@@ -396,6 +1266,31 @@ types:
           application/json:
             type: HttpStatusResponse
             example: { code: 504, message: Gateway Timeout }
+      505:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 505, message: HTTP Version Not Supported }
+      506:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 506, message: Variant Also Negotiates }
+      507:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 507, message: Insufficient Storage }
+      508:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 508, message: Loop Detected }
+      510:
+        body:
+          application/json:
+            type: HttpStatusResponse
+            example: { code: 510, message: Not Extended }
       511:
         body:
           application/json:
