@@ -27,7 +27,22 @@ types:
     httpStatus:
       type: integer
       description: HTTP status code to mock
-      example: 404
+      examples:
+        200:
+          value: 200
+          description: OK
+        201:
+          value: 201
+          description: Created
+        204:
+          value: 204
+          description: No Content
+        400:
+          value: 400
+          description: Bad Request
+        404:
+          value: 404
+          description: Not Found
   get:
     description: Mock GET response for the given HTTP status code
     responses:
