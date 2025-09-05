@@ -43,6 +43,47 @@ output application/json
             </on-error-propagate>
         </error-handler>
     </flow> [STUDIO] -->
+    <flow name="get:\info:http-status-config">
+        <ee:transform doc:name="GET/info /json">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+
+var ramlRootFileName = 'http-status'
+
+var xml = readUrl("classpath://$(ramlRootFileName).xml", "application/xml" )
+var apikitFlows = ["$(ramlRootFileName)-main", "$(ramlRootFileName)-console"]
+var e = (xml.mule.*flow.@name -- apikitFlows)
+    map( $ replace '\\' with '/' )
+---
+{
+  "app": {
+    groupId: "",
+    artifactId: "",
+    version: "",
+    name: "",
+    description: "",
+    packaging: "",
+  },
+  "endpoints"      : {
+    "summary": {
+  	"total"      : sizeOf(e),
+  	"methods"    : {
+  		"GET"    : sizeOf(e filter ($ startsWith "get:"   )),
+	  	"POST"   : sizeOf(e filter ($ startsWith "post:"  )),
+	  	"PUT"    : sizeOf(e filter ($ startsWith "put:"   )),
+	  	"PATCH"  : sizeOf(e filter ($ startsWith "patch:" )),
+	  	"DELETE" : sizeOf(e filter ($ startsWith "delete:")),
+  	},
+    "list"         : e,
+  }
+  }
+}
+]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+        <logger level="INFO" doc:name="Logger INFO (Reponse Endpoints)" message="#[payload]" />
+    </flow>
     <flow name="get:\(httpStatus):http-status-config">
         <ee:transform doc:name="httpStatus">
             <ee:variables>

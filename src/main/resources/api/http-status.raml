@@ -22,6 +22,46 @@ types:
       code: 404
       message: Not Found
 
+/info:
+  get:
+    description: Get information about the API
+    responses:
+      200:
+        body:
+          application/json:
+            type: object
+            properties:
+              app:
+                type: object
+                properties:
+                  groupId: string
+                  artifactId: string
+                  version: string
+                  name: string
+                  description: string
+                  packaging: string
+              endpoints:
+                type: object
+                properties:
+                  summary:
+                    type: object
+                    properties:
+                      total: integer
+                      methods:
+                        type: object
+                        properties:
+                          GET: integer
+                          POST: integer
+                          PUT: integer
+                          PATCH: integer
+                          DELETE: integer
+                  list:
+                    type: array
+                    items:
+                      type: string
+
+
+
 /{httpStatus}:
   uriParameters:
     httpStatus:
