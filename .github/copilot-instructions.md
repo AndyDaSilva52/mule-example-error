@@ -3,7 +3,7 @@ applyTo: "**"
 ---
 - MCP means Model Context Protocol
 - ATC is Agent Topic and Actions
-- "API Spec" is the same as "API Specification" 
+- "API Spec" is the same as "API Specification"
 - The "descriptor file" for an API Project is the `exchange.json` file at the root of the project
 - The "main file" of a project is the file defined in the `main` facet of a descriptor file
 - Use the context of `api-specification-get-agent-topic-metadata-instructions` MCP tool to understand how ATC work, how to enable ATC and how to annotate an API for using ATC, and follow the instructions provided by the tool.
