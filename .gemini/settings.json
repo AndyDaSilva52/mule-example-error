@@ -1,0 +1,23 @@
+{
+  "contextFileName": [],
+  "autoAccept": false,
+  "checkpointing": {
+    "enabled": false
+  },
+  "theme": "GitHub",
+  "mcpServers": {
+    "mulesoft": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mulesoft/mcp-server",
+        "start"
+      ],
+      "env": {
+        "ANYPOINT_CLIENT_ID": "$MULESOFT_APP_CLIENT_ID",
+        "ANYPOINT_CLIENT_SECRET": "$MULESOFT_APP_CLIENT_SECRET",
+        "ANYPOINT_REGION": "PROD_US"
+      }
+    }
+  }
+}
