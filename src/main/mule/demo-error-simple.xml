@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+  <flow name="example.for-each">
+    <scheduler doc:name="ForEach" doc:id="iyxlyo">
+      <scheduling-strategy>
+        <fixed-frequency timeUnit="MINUTES" frequency="60" />
+      </scheduling-strategy>
+    </scheduler>
+
+    <foreach doc:name="For Each" collection="#[1 to 3]">
+      <logger level="INFO" doc:name="Log Each Item" doc:id="56789012-3abc-def4-5678-90abcdef4" message="Processing item: #[payload]" />
+      <!-- Add further processing logic here for each item -->
+    </foreach>
+    <logger level="INFO" doc:name="Log Completion" doc:id="67890123-4abc-def5-6789-0abcdef5" message="Completed processing all items." />
+  </flow>
+</mule>
